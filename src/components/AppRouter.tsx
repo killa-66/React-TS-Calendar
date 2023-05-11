@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { RouteNames, privatRoutes, publicRoutes } from '../router';
+import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 export default function AppRouter() {
-  const auth = true;
+  const {isAuth} = useTypedSelector(state => state.auth)
   const navigate = useNavigate()
   useEffect(() => {
-    if(!auth) {
+    if(!isAuth) {
       navigate(RouteNames.LOGIN);
-    } navigate(RouteNames.EVENT)
+    } else {
+      navigate(RouteNames.EVENT)
+    }
   })
   return (
-    auth === true 
+    isAuth
     ? 
     <Routes>
       {privatRoutes.map(route =>  {
