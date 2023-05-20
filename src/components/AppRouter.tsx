@@ -13,7 +13,7 @@ export default function AppRouter() {
     } else {
       navigate(RouteNames.EVENT)
     }
-  })
+  }, [isAuth, navigate])
   return (
     isAuth
     ? 
