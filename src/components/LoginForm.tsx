@@ -25,32 +25,32 @@ const LoginForm: FC = () => {
         {error}
       </div>}
       <Form.Item
-      label="Имя пользователя"
-      name="username"
-      rules={[rules.required('Пожалуйста введите имя пользователя')]}
-    >
+        label="Имя пользователя"
+        name="username"
+        rules={[rules.required('Пожалуйста введите имя пользователя')]}
+      >
       <Input 
         value={username} 
         onChange={(e) => {setUsername(e.target.value)}} 
       />
-    </Form.Item>
-    <Form.Item
-      label="Пароль"
-      name="password"
-      rules={[rules.required('Пожалуйста введите пароль')]}
-    >
-       <Input 
-        value={password} 
-        onChange={(e) => {setPassword(e.target.value)}} 
-        type={'password'}
-      />
-    </Form.Item>
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-      <Button type="primary" htmlType="submit" loading={isLoading}>
-        Войти
-      </Button>
-    </Form.Item>
-    </Form>
+      </Form.Item>
+      <Form.Item
+        label="Пароль"
+        name="password"
+        rules={[rules.required('Пожалуйста введите пароль')]}
+      >
+        <Input 
+          value={password} 
+          onChange={(e) => {setPassword(e.target.value)}} 
+          type={'password'}
+        />
+      </Form.Item>
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit" loading={isLoading}>
+          Войти
+        </Button>
+      </Form.Item>
+      </Form>
   )
 };
 
